@@ -37,30 +37,30 @@ export function DocumentsTable({
 
   return (
     <div className="flex-1 min-w-0 flex flex-col">
-      <div className="px-3 py-2 border-b flex items-center justify-between">
+      <div className="px-3 py-2.5 border-b flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-base font-semibold uppercase tracking-wider text-muted-foreground">
             Documents
           </h2>
-          <span className="text-[10px] text-muted-foreground">{documents.length} total</span>
+          <span className="text-base text-muted-foreground">{documents.length} total</span>
         </div>
-        <Button size="sm" className="h-7 px-2 gap-1" onClick={onAddDocument}>
-          <Plus className="h-3.5 w-3.5" />
-          <span className="text-xs">Add Document</span>
+        <Button size="sm" className="h-9 px-3 gap-1.5" onClick={onAddDocument}>
+          <Plus className="h-4 w-4" />
+          <span className="text-base">Add Document</span>
         </Button>
       </div>
       <div className="overflow-auto">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-24 text-[10px] uppercase">Status</TableHead>
-              <TableHead className="text-[10px] uppercase">Name / ID</TableHead>
-              <TableHead className="w-28 text-[10px] uppercase">Findings</TableHead>
-              <TableHead className="w-28 text-[10px] uppercase">Reviewer</TableHead>
-              <TableHead className="w-28 text-[10px] uppercase">QC</TableHead>
-              <TableHead className="w-16 text-[10px] uppercase">Pages</TableHead>
-              <TableHead className="w-16 text-[10px] uppercase">Enc.</TableHead>
-              <TableHead className="w-16 text-[10px] uppercase text-right">Preview</TableHead>
+              <TableHead className="text-base uppercase">Status</TableHead>
+              <TableHead className="text-base uppercase">Name / ID</TableHead>
+              <TableHead className="text-base uppercase">Findings</TableHead>
+              <TableHead className="text-base uppercase">Reviewer</TableHead>
+              <TableHead className="text-base uppercase">QC</TableHead>
+              <TableHead className="text-base uppercase">Pages</TableHead>
+              <TableHead className="text-base uppercase">Enc.</TableHead>
+              <TableHead className="text-base uppercase text-right">Preview</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -72,15 +72,15 @@ export function DocumentsTable({
                 onClick={() => onSelect(doc.id)}
               >
                 <TableCell>
-                  <Badge variant={statusVariant[doc.status]} className="text-[10px]">
+                  <Badge variant={statusVariant[doc.status]} className="text-base">
                     {doc.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-xs">
-                  <div className="font-medium truncate max-w-[280px]">{doc.name}</div>
-                  <div className="text-[10px] text-muted-foreground">{doc.id}</div>
+                <TableCell className="text-base">
+                  <div className="font-medium truncate max-w-[320px]">{doc.name}</div>
+                  <div className="text-base text-muted-foreground">{doc.id}</div>
                 </TableCell>
-                <TableCell className="text-xs">
+                <TableCell className="text-base">
                   {doc.findingsCount > 0 ? (
                     <span>
                       <span className="font-medium">{doc.findingsCount}</span>
@@ -90,28 +90,28 @@ export function DocumentsTable({
                     <span className="text-muted-foreground">—</span>
                   )}
                 </TableCell>
-                <TableCell className="text-xs">{doc.reviewer}</TableCell>
-                <TableCell className="text-xs">{doc.qc}</TableCell>
-                <TableCell className="text-xs">{doc.pageCount}</TableCell>
+                <TableCell className="text-base">{doc.reviewer}</TableCell>
+                <TableCell className="text-base">{doc.qc}</TableCell>
+                <TableCell className="text-base">{doc.pageCount}</TableCell>
                 <TableCell>
                   {doc.encrypted ? (
-                    <Lock className="h-3 w-3 text-muted-foreground" />
+                    <Lock className="h-4 w-4 text-muted-foreground" />
                   ) : (
-                    <span className="text-muted-foreground text-[10px]">—</span>
+                    <span className="text-muted-foreground text-base">—</span>
                   )}
                 </TableCell>
                 <TableCell className="text-right">
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-7 w-7"
+                    className="h-9 w-9"
                     onClick={(e) => {
                       e.stopPropagation()
                       handlePreview(doc)
                     }}
                     title="Open preview in new tab"
                   >
-                    <Eye className="h-3.5 w-3.5" />
+                    <Eye className="h-4 w-4" />
                   </Button>
                 </TableCell>
               </TableRow>

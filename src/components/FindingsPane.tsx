@@ -32,16 +32,16 @@ export function FindingsPane({
 }) {
   return (
     <aside className="w-[44%] shrink-0 bg-card flex flex-col border-r">
-      <div className="px-3 py-2 border-b flex items-center justify-between">
+      <div className="px-3 py-2.5 border-b flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-base font-semibold uppercase tracking-wider text-muted-foreground">
             Summary Findings
           </h2>
-          <span className="text-[10px] text-muted-foreground">{findings.length} total</span>
+          <span className="text-base text-muted-foreground">{findings.length} total</span>
         </div>
-        <Button size="sm" className="h-7 px-2 gap-1" onClick={onAdd}>
-          <Plus className="h-3.5 w-3.5" />
-          <span className="text-xs">Add Finding</span>
+        <Button size="sm" className="h-9 px-3 gap-1.5" onClick={onAdd}>
+          <Plus className="h-4 w-4" />
+          <span className="text-base">Add Finding</span>
         </Button>
       </div>
 
@@ -49,45 +49,45 @@ export function FindingsPane({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-20 text-[10px] uppercase">Date</TableHead>
-              <TableHead className="w-24 text-[10px] uppercase">Type</TableHead>
-              <TableHead className="text-[10px] uppercase">Details</TableHead>
-              <TableHead className="w-20 text-[10px] uppercase">Doc</TableHead>
-              <TableHead className="w-32 text-[10px] uppercase">Facility</TableHead>
-              <TableHead className="w-16 text-[10px] uppercase">Qual.</TableHead>
-              <TableHead className="w-12 text-[10px] uppercase">QC</TableHead>
-              <TableHead className="w-12 text-[10px] uppercase">Pages</TableHead>
-              <TableHead className="w-8"></TableHead>
+              <TableHead className="text-base uppercase">Date</TableHead>
+              <TableHead className="text-base uppercase">Type</TableHead>
+              <TableHead className="text-base uppercase">Details</TableHead>
+              <TableHead className="text-base uppercase">Doc</TableHead>
+              <TableHead className="text-base uppercase">Facility</TableHead>
+              <TableHead className="text-base uppercase">Qual.</TableHead>
+              <TableHead className="text-base uppercase">QC</TableHead>
+              <TableHead className="text-base uppercase">Pages</TableHead>
+              <TableHead className="w-10"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {findings.map((f) => (
               <TableRow key={f.id}>
-                <TableCell className="text-[11px] whitespace-nowrap">{f.date}</TableCell>
-                <TableCell className="text-[11px]">
-                  <Badge variant="outline" className="text-[10px]">
+                <TableCell className="text-base whitespace-nowrap">{f.date}</TableCell>
+                <TableCell className="text-base">
+                  <Badge variant="outline" className="text-base">
                     {f.type}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-[11px]">{f.details}</TableCell>
-                <TableCell className="text-[11px]">
-                  <span className="text-muted-foreground font-mono text-[10px]">{f.sourceDocId}</span>
+                <TableCell className="text-base">{f.details}</TableCell>
+                <TableCell className="text-base">
+                  <span className="text-muted-foreground font-mono">{f.sourceDocId}</span>
                 </TableCell>
-                <TableCell className="text-[11px] text-muted-foreground">{f.facility}</TableCell>
-                <TableCell className="text-[11px]">
+                <TableCell className="text-base text-muted-foreground">{f.facility}</TableCell>
+                <TableCell className="text-base">
                   <Badge
                     variant={f.qualifiedFinding === "Yes" ? "secondary" : "outline"}
-                    className="text-[10px]"
+                    className="text-base"
                   >
                     {f.qualifiedFinding}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-[11px]">{f.qc}</TableCell>
-                <TableCell className="text-[11px] text-muted-foreground">{f.pages}</TableCell>
+                <TableCell className="text-base">{f.qc}</TableCell>
+                <TableCell className="text-base text-muted-foreground">{f.pages}</TableCell>
                 <TableCell>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="h-6 w-6 inline-flex items-center justify-center rounded hover:bg-muted">
-                      <MoreVertical className="h-3 w-3" />
+                    <DropdownMenuTrigger className="h-8 w-8 inline-flex items-center justify-center rounded hover:bg-muted">
+                      <MoreVertical className="h-4 w-4" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => onChangeDocument(f)}>

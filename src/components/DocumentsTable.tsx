@@ -15,6 +15,7 @@ const statusVariant: Record<DocumentStatus, "default" | "secondary" | "destructi
   "Reviewed": "secondary",
   "In Review": "default",
   "QC Pending": "outline",
+  "Needs Review": "default",
   "Needs Reupload": "destructive",
   "Pending": "outline",
 }

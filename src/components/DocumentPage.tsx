@@ -47,11 +47,9 @@ export function DocumentPage({ docId }: { docId: string }) {
           </div>
         ) : (
           <div className="px-8 py-20 text-center">
-            <p className="text-sm text-muted-foreground">
-              No preview available for this document.
-            </p>
+            <p className="text-sm font-medium">Document upload received</p>
             <p className="text-xs text-muted-foreground mt-2">
-              {doc.encrypted ? "Document is encrypted." : "Preview generation pending."}
+              Preview will be available once processing completes.
             </p>
           </div>
         )}

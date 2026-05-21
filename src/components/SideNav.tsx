@@ -1,12 +1,11 @@
-import { Activity, CheckSquare, User, Stethoscope, Folder, ShieldCheck, FileText } from "lucide-react"
+import { Activity, CheckSquare, User, Stethoscope, Folder, FileText } from "lucide-react"
 
 const items = [
   { label: "Activity", icon: Activity },
   { label: "Tasks", icon: CheckSquare },
   { label: "Patient info", icon: User },
   { label: "Diagnoses", icon: Stethoscope },
-  { label: "Records", icon: Folder, active: true },
-  { label: "Review & QC", icon: ShieldCheck },
+  { label: "Records review", icon: Folder, active: true },
   { label: "Forms", icon: FileText },
 ]
 
@@ -17,10 +16,10 @@ export function SideNav() {
         {items.map(({ label, icon: Icon, active }) => (
           <li key={label}>
             <button
-              className={`w-full flex items-center gap-2 px-2 py-1.5 rounded text-xs text-left ${
+              className={`w-full flex items-center gap-2 px-2 py-1.5 rounded text-xs text-left transition-colors ${
                 active
-                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                  : "hover:bg-sidebar-accent/50"
+                  ? "bg-muted text-foreground font-medium"
+                  : "text-sidebar-foreground/80 hover:bg-sidebar-accent/40"
               }`}
             >
               <Icon className="h-3.5 w-3.5" />

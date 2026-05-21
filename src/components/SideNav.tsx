@@ -18,7 +18,7 @@ export function SideNav() {
             <button
               className={`w-full flex items-center gap-2 px-2 py-1.5 rounded text-xs text-left transition-colors ${
                 active
-                  ? "bg-muted text-foreground font-medium"
+                  ? "bg-neutral-200 text-foreground font-medium"
                   : "text-sidebar-foreground/80 hover:bg-sidebar-accent/40"
               }`}
             >

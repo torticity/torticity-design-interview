@@ -1,7 +1,7 @@
 import { caseHeader } from "@/data/case"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, MoreHorizontal } from "lucide-react"
+import { MoreHorizontal } from "lucide-react"
 
 function Field({ label, value }: { label: string; value: string | React.ReactNode }) {
   return (
@@ -18,12 +18,6 @@ export function CaseHeader() {
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="flex items-center gap-2 min-w-0">
           <h1 className="text-base font-semibold truncate">{caseHeader.patientName}</h1>
-          {caseHeader.verified && (
-            <Badge variant="secondary" className="text-[10px] gap-1">
-              <CheckCircle2 className="h-3 w-3" />
-              Verified
-            </Badge>
-          )}
           <Badge className="text-[10px]">{caseHeader.status}</Badge>
           <Badge variant="outline" className="text-[10px]">{caseHeader.subStatus}</Badge>
         </div>

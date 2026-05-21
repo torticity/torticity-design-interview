@@ -131,7 +131,7 @@ export const documents: CaseDocument[] = [
   {
     id: "DOC-009",
     name: "Insurance Pre-Auth Request 12/03/25",
-    status: "QC Pending",
+    status: "Needs Review",
     findingsCount: 1,
     findingsType: "Administrative",
     reviewer: "Sarah Chen",
@@ -155,7 +155,7 @@ export const documents: CaseDocument[] = [
   {
     id: "DOC-011",
     name: "Genetic Testing - BRCA1/BRCA2 10/02/25",
-    status: "Pending",
+    status: "Needs Review",
     findingsCount: 0,
     findingsType: "—",
     reviewer: "—",

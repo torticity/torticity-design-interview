@@ -46,20 +46,20 @@ export function ChangeDocumentDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-xl text-base">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Change source document</DialogTitle>
+            <DialogTitle className="text-lg">Change source document</DialogTitle>
           </DialogHeader>
-          <div className="py-4 space-y-3">
+          <div className="py-4 space-y-4">
             {finding && (
-              <div className="text-xs text-muted-foreground border-l-2 pl-3">
+              <div className="text-base text-muted-foreground border-l-2 pl-3">
                 <div className="font-medium text-foreground line-clamp-2">{finding.details}</div>
                 <div className="mt-1">Currently: {finding.sourceDocId}</div>
               </div>
             )}
             <div>
-              <Label className="text-xs mb-1.5 block">New source document</Label>
+              <Label className="text-base mb-1.5 block">New source document</Label>
               <Select value={selected} onValueChange={(v) => v && setSelected(v)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent alignItemWithTrigger={false} className="min-w-[460px]">

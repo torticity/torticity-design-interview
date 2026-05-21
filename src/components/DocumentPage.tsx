@@ -22,8 +22,11 @@ export function DocumentPage({ docId }: { docId: string }) {
         <header className="border-b px-8 py-5">
           <div className="flex items-baseline justify-between gap-3">
             <h1 className="text-lg font-semibold">{content ? content.title : doc.name}</h1>
-            <span className="text-xs text-muted-foreground">{doc.id}</span>
+            <span className="text-xs text-muted-foreground shrink-0">{doc.id}</span>
           </div>
+          {content && (
+            <div className="text-xs text-muted-foreground font-mono break-all mt-1">{doc.name}</div>
+          )}
           <div className="text-xs text-muted-foreground mt-1">
             {doc.pageCount} page{doc.pageCount !== 1 ? "s" : ""} · {doc.findingsType}
           </div>

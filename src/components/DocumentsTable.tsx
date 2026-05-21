@@ -1,4 +1,4 @@
-import { documents, type CaseDocument } from "@/data/documents"
+import type { CaseDocument, DocumentStatus } from "@/data/documents"
 import {
   Table,
   TableHeader,
@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Pencil, Lock } from "lucide-react"
+import { Eye, Lock, Plus } from "lucide-react"
 
-const statusVariant: Record<CaseDocument["status"], "default" | "secondary" | "destructive" | "outline"> = {
+const statusVariant: Record<DocumentStatus, "default" | "secondary" | "destructive" | "outline"> = {
   "Reviewed": "secondary",
   "In Review": "default",
   "QC Pending": "outline",
@@ -20,21 +20,33 @@ const statusVariant: Record<CaseDocument["status"], "default" | "secondary" | "d
 }
 
 export function DocumentsTable({
+  documents,
   selectedId,
   onSelect,
-  onEdit,
+  onAddDocument,
 }: {
+  documents: CaseDocument[]
   selectedId: string | null
   onSelect: (id: string) => void
-  onEdit: (doc: CaseDocument) => void
+  onAddDocument: () => void
 }) {
+  function handlePreview(doc: CaseDocument) {
+    window.open(`?doc=${doc.id}`, "_blank")
+  }
+
   return (
-    <div className="flex-1 min-w-0 border-r flex flex-col">
+    <div className="flex-1 min-w-0 flex flex-col">
       <div className="px-3 py-2 border-b flex items-center justify-between">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Documents
-        </h2>
-        <span className="text-[10px] text-muted-foreground">{documents.length} total</span>
+        <div className="flex items-center gap-2">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Documents
+          </h2>
+          <span className="text-[10px] text-muted-foreground">{documents.length} total</span>
+        </div>
+        <Button size="sm" className="h-7 px-2 gap-1" onClick={onAddDocument}>
+          <Plus className="h-3.5 w-3.5" />
+          <span className="text-xs">Add Document</span>
+        </Button>
       </div>
       <div className="overflow-auto">
         <Table>
@@ -47,7 +59,7 @@ export function DocumentsTable({
               <TableHead className="w-28 text-[10px] uppercase">QC</TableHead>
               <TableHead className="w-16 text-[10px] uppercase">Pages</TableHead>
               <TableHead className="w-16 text-[10px] uppercase">Enc.</TableHead>
-              <TableHead className="w-12 text-[10px] uppercase text-right">Edit</TableHead>
+              <TableHead className="w-16 text-[10px] uppercase text-right">Preview</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -94,10 +106,11 @@ export function DocumentsTable({
                     className="h-7 w-7"
                     onClick={(e) => {
                       e.stopPropagation()
-                      onEdit(doc)
+                      handlePreview(doc)
                     }}
+                    title="Open preview in new tab"
                   >
-                    <Pencil className="h-3 w-3" />
+                    <Eye className="h-3.5 w-3.5" />
                   </Button>
                 </TableCell>
               </TableRow>

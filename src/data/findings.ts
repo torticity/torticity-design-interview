@@ -36,32 +36,3 @@ export const findings: Finding[] = [
   { id: "F-023", date: "11/03/2025", type: "Diagnosis", details: "Comorbidity: hypertension (controlled on lisinopril)", facility: "Mountain Health Oncology", qualifiedFinding: "Yes", qc: "Pass", pages: "p. 2", sourceDocId: "DOC-003" },
   { id: "F-024", date: "11/03/2025", type: "Treatment", details: "Patient enrolled in genetic counseling pre-treatment", facility: "Mountain Health Oncology", qualifiedFinding: "Yes", qc: "Pass", pages: "p. 6", sourceDocId: "DOC-003" },
 ]
-
-export const keyPhrases = [
-  "not medically necessary",
-  "medically equivalent alternative",
-  "policy MED-RAD-014",
-  "proton beam therapy",
-  "left-sided heart/lung proximity",
-  "internal mammary node coverage",
-  "baseline LVEF 62%",
-  "cardiotoxic risk",
-  "HER2-positive triple positive",
-  "pT2 pN2a",
-  "180-day appeal window",
-  "external review available",
-  "6-week treatment delay",
-]
-
-export const uprightCriteria = [
-  { criterion: "Treatment recommendation documented by board-certified oncologist", met: true },
-  { criterion: "Medical necessity established with cited clinical reasoning", met: true },
-  { criterion: "Alternative treatments considered and documented", met: true },
-  { criterion: "Cardiotoxic risk assessment present", met: true },
-  { criterion: "Pre-authorization timeline within carrier policy", met: true },
-  { criterion: "Denial letter received and dated", met: true },
-  { criterion: "Appeal deadline tracked", met: false },
-  { criterion: "Internal appeal submitted", met: false },
-  { criterion: "External review requested", met: false },
-  { criterion: "Patient consent for appeal on file", met: false },
-]

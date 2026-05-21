@@ -62,9 +62,9 @@ export function ChangeDocumentDialog({
               <Label className="text-xs mb-1.5 block">New source document</Label>
               <Select value={selected} onValueChange={(v) => v && setSelected(v)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>
+                <SelectContent alignItemWithTrigger={false} className="min-w-[460px]">
                   {documents.map((d) => (
-                    <SelectItem key={d.id} value={d.id}>{d.id} — {d.name.slice(0, 40)}{d.name.length > 40 ? "…" : ""}</SelectItem>
+                    <SelectItem key={d.id} value={d.id}>{d.id} — {d.name}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>

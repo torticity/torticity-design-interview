@@ -136,9 +136,9 @@ export function AddFindingDialog({
               <Label className="text-xs mb-1.5 block">Source Document</Label>
               <Select value={sourceDocId} onValueChange={(v) => v && setSourceDocId(v)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>
+                <SelectContent alignItemWithTrigger={false} className="min-w-[460px]">
                   {documents.map((d) => (
-                    <SelectItem key={d.id} value={d.id}>{d.id} — {d.name.slice(0, 30)}{d.name.length > 30 ? "…" : ""}</SelectItem>
+                    <SelectItem key={d.id} value={d.id}>{d.id} — {d.name}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>

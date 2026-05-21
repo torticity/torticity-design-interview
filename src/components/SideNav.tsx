@@ -1,4 +1,4 @@
-import { Activity, CheckSquare, User, Stethoscope, Folder, FileText } from "lucide-react"
+import { Activity, CheckSquare, User, Stethoscope, Folder } from "lucide-react"
 
 const items = [
   { label: "Activity", icon: Activity },
@@ -6,7 +6,6 @@ const items = [
   { label: "Patient info", icon: User },
   { label: "Diagnoses", icon: Stethoscope },
   { label: "Records review", icon: Folder, active: true },
-  { label: "Forms", icon: FileText },
 ]
 
 export function SideNav() {

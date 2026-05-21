@@ -77,7 +77,7 @@ export function DocumentsTable({
                   </Badge>
                 </TableCell>
                 <TableCell className="text-base">
-                  <div className="font-medium truncate max-w-[320px]">{doc.name}</div>
+                  <div className="font-medium break-all">{doc.name}</div>
                   <div className="text-base text-muted-foreground">{doc.id}</div>
                 </TableCell>
                 <TableCell className="text-base">

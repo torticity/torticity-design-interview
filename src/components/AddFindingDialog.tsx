@@ -90,18 +90,18 @@ export function AddFindingDialog({
 
   return (
     <Dialog open={open} onOpenChange={(v) => { if (!v) reset(); onOpenChange(v) }}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-xl text-base">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Add Finding</DialogTitle>
+            <DialogTitle className="text-lg">Add Finding</DialogTitle>
           </DialogHeader>
-          <div className="grid grid-cols-2 gap-3 py-4">
+          <div className="grid grid-cols-2 gap-4 py-4">
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Date</Label>
+              <Label className="text-base mb-1.5 block">Date</Label>
               <Input value={date} onChange={(e) => setDate(e.target.value)} placeholder="MM/DD/YYYY" />
             </div>
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Type</Label>
+              <Label className="text-base mb-1.5 block">Type</Label>
               <Select value={type} onValueChange={(v) => v && setType(v)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
@@ -110,19 +110,19 @@ export function AddFindingDialog({
               </Select>
             </div>
             <div className="col-span-2">
-              <Label className="text-xs mb-1.5 block">Details</Label>
+              <Label className="text-base mb-1.5 block">Details</Label>
               <Textarea value={details} onChange={(e) => setDetails(e.target.value)} rows={3} placeholder="e.g. Stage IIIA invasive ductal carcinoma (ICD-10: C50.911)" />
             </div>
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Facility</Label>
+              <Label className="text-base mb-1.5 block">Facility</Label>
               <Input value={facility} onChange={(e) => setFacility(e.target.value)} placeholder="e.g. Mountain Health" />
             </div>
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Pages</Label>
+              <Label className="text-base mb-1.5 block">Pages</Label>
               <Input value={pages} onChange={(e) => setPages(e.target.value)} placeholder="e.g. p. 2-3" />
             </div>
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Qualified Finding</Label>
+              <Label className="text-base mb-1.5 block">Qualified Finding</Label>
               <Select value={qualifiedFinding} onValueChange={(v) => setQualifiedFinding(v as Finding["qualifiedFinding"])}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent>
@@ -133,7 +133,7 @@ export function AddFindingDialog({
               </Select>
             </div>
             <div className="col-span-1">
-              <Label className="text-xs mb-1.5 block">Source Document</Label>
+              <Label className="text-base mb-1.5 block">Source Document</Label>
               <Select value={sourceDocId} onValueChange={(v) => v && setSourceDocId(v)}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
                 <SelectContent alignItemWithTrigger={false} className="min-w-[460px]">

@@ -1,4 +1,5 @@
 import type { Finding } from "@/data/findings"
+import type { CaseDocument } from "@/data/documents"
 import {
   Table,
   TableHeader,
@@ -19,17 +20,21 @@ import { MoreVertical, Plus } from "lucide-react"
 
 export function FindingsPane({
   findings,
+  documents,
   onAdd,
   onChangeDocument,
   onClone,
   onDelete,
 }: {
   findings: Finding[]
+  documents: CaseDocument[]
   onAdd: () => void
   onChangeDocument: (f: Finding) => void
   onClone: (f: Finding) => void
   onDelete: (f: Finding) => void
 }) {
+  const docsById = Object.fromEntries(documents.map((d) => [d.id, d]))
+
   return (
     <aside className="w-[44%] shrink-0 bg-card flex flex-col border-r">
       <div className="px-3 py-2.5 border-b flex items-center justify-between">
@@ -52,7 +57,7 @@ export function FindingsPane({
               <TableHead className="text-base uppercase">Date</TableHead>
               <TableHead className="text-base uppercase">Type</TableHead>
               <TableHead className="text-base uppercase">Details</TableHead>
-              <TableHead className="text-base uppercase">Doc</TableHead>
+              <TableHead className="text-base uppercase">Document</TableHead>
               <TableHead className="text-base uppercase">Facility</TableHead>
               <TableHead className="text-base uppercase">Qual.</TableHead>
               <TableHead className="text-base uppercase">QC</TableHead>
@@ -71,7 +76,10 @@ export function FindingsPane({
                 </TableCell>
                 <TableCell className="text-base">{f.details}</TableCell>
                 <TableCell className="text-base">
-                  <span className="text-muted-foreground font-mono">{f.sourceDocId}</span>
+                  <div className="text-muted-foreground font-mono">{f.sourceDocId}</div>
+                  <div className="font-mono break-all text-foreground/80">
+                    {docsById[f.sourceDocId]?.name ?? "—"}
+                  </div>
                 </TableCell>
                 <TableCell className="text-base text-muted-foreground">{f.facility}</TableCell>
                 <TableCell className="text-base">

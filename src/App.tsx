@@ -96,6 +96,7 @@ function MainApp() {
         <SideNav />
         <FindingsPane
           findings={findings}
+          documents={documents}
           onAdd={() => setAddFindingOpen(true)}
           onChangeDocument={(f) => setChangeDocFinding(f)}
           onClone={handleCloneFinding}
